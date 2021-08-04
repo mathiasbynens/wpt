@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Containment Module Level 1: getComputedStyle().contain</title>
+<link rel="help" href="https://drafts.csswg.org/css-contain/#contain-property">
+<meta name="assert" content="contain computed value for children should ignore container contain value.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+</head>
+<body>
+<div id="container"><div id="target"></div></div>
+<script>
+['none', 'style', 'layout', 'paint', 'size', 'strict', 'content'].forEach(value => {
+    container.style.contain = value;
+    test_computed_value("contain", "none", "none", value);
+});
+</script>
+</body>
+</html>
